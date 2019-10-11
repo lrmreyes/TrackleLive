@@ -25,7 +25,7 @@ SECRET_KEY = 'ub6wiogxcz8erkj(t1tzxk+olnbgq+6zw@ii3(%)cymw@fv!9m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['r2a207.pythonanywhere.com', 'trackle.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['trackle.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -117,7 +117,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_ROOT = "/home/R2A207/Trackle2/Trackle/trackle/static-files"
+STATIC_ROOT = "/home/trackle/TrackleLive/Trackle/trackle/static-files"
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
