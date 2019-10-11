@@ -1,0 +1,17 @@
+<h2>Requirements</h2>
+<p>
+  <span class="text-muted">Section: </span><strong>{{ user.student.section }}</strong>
+</p>
+<p class="text-muted">
+  Classes:{% for subject in user.student.subjects.all %} {{ subject.name }}{% if not forloop.last  %}, {% endif %}{% endfor %}
+  <a href="{% url 'students:student_subjects' %}"><small>(update classes)</small></a>
+</p>
+
+<ul class="nav nav-tabs mb-3">
+  <li class="nav-item">
+    <a class="nav-link{% if active == 'new' %} active{% endif %}" href="{% url 'students:requirement_list' %}">Current</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link{% if active == 'taken' %} active{% endif %}" href="{% url 'students:finished_requirement_list' %}">Finished</a>
+  </li>
+</ul>

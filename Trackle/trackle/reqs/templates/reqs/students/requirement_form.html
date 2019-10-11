@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% for req in requirement %}
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        Requirement Details
+      </div>
+      <div class="card-body">
+        <h4 class="card-title mb-2">{{ req.subject }} - {{ req.name }}</h4>
+        <small>due <strong>{{ req.duedate }}</strong></small>
+        <p class="card-text">{{ req.details}}</p>
+        <a href="{% url 'students:requirement_list' %}" class="btn btn-primary">Back to Requirement List</a>
+        <a href="{% url 'students:report_add' pk=req.pk %}" class="btn btn-link float-right">Report</a> 
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body table-responsive">
+        <h4 class="card-title mb-2">Comments</h4>
+        <a href="{% url 'students:comment_add' pk=req.pk %}" class="btn btn-primary mb-2">Add Comment</a>
+        {% for comment in req.req_comment.all %}
+        <div class="card mb-1">
+          <div class="card-body">
+            <h6 class="card-title">{{ comment.writer }}</h6>
+            <p class="card-text">{{ comment.content}}</p>
+            <small>{{ comment.dateAdded }}</small>
+          </div>
+        </div>
+        {% empty %}
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text">No comments</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
