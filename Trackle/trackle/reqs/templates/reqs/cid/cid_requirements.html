@@ -62,7 +62,7 @@
     var reqTable = {
         reqs : {
             {% for requirement in requirement %}
-             {{ requirement.name|cut:" "  }} : {
+             {{ requirement.pk }} : {
                 section: "{% if requirement.subject.section %}{{requirement.subject.section}}{% else %}SYP{% endif %}",
                 subject : "{{ requirement.subject}}",
                 teacher : "{{ requirement.owner}}",
@@ -174,7 +174,7 @@
     for (i in reqTable.reqs){
         dateValue = new Date(reqTable.reqs[i].dueDate)
         sectionValue = reqTable.reqs[i].section
-        if (sectionLoads[sectionValue][dateValue] >= 2){
+        if (sectionLoads[sectionValue][dateValue] > 2){
             reqTable.reqs[i].overLoaded = true
         }
     }
@@ -182,16 +182,6 @@
     for (i in reqTable.reqs) {
         reqTable.addRow(i)
     }
-
-    //finally
-
-
-
-
-
-
-
-
 
     function SearchFunctionReqs() {
   // Declare variables
