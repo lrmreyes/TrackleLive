@@ -90,7 +90,7 @@
           var num = dates[i];
           counts[num] = counts[num] ? counts[num] + 1 : 1;
         }
-        for (i in counts){if (counts[i] >= 2) {limitReached.push(i)}}
+        for (i in counts){if (counts[i] > 2) {limitReached.push(i)}}
 
         table = document.getElementById("DataTable");
         tr = table.getElementsByTagName("tr");
